@@ -1,0 +1,116 @@
+.root {
+  padding-top: 27px;
+  padding-bottom: 41px;
+
+  .container {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .selectRows {
+      display: flex;
+      gap: 30px;
+    }
+
+    .selectContainer {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+
+      span {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0%;
+      }
+    }
+  }
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 700px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+
+    button {
+      background: none;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: 0%;
+      white-space: nowrap;
+      // запрет на перенос строк внутри тега
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+
+      &.active {
+        color: rgb(247, 210, 45);
+      }
+    }
+  }
+
+  .cart {
+    padding: 7px 25px;
+    border-radius: 8px;
+    background: rgb(247, 210, 45);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    span {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 28px;
+      letter-spacing: 0%;
+    }
+    .separator {
+      width: 2px;
+      height: 23px;
+      border-radius: 5px;
+      background: rgb(35, 31, 32);
+    }
+  }
+
+  select {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0%;
+    padding: 7px 0;
+    border-radius: 8px;
+    background: rgb(247, 210, 45);
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    input {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: 0%;
+      padding: 7px 5px;
+      border-radius: 8px;
+      border: 1px solid rgb(247, 210, 45);
+    }
+
+    button {
+      padding: 7px 25px;
+      border-radius: 8px;
+      background: rgb(247, 210, 45);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 28px;
+      letter-spacing: 0%;
+    }
+  }
+}

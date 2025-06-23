@@ -1,0 +1,73 @@
+.root {
+  width: 256px;
+  height: 465px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  img {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  h3 {
+    color: rgb(121, 121, 121);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: 0%;
+    margin-bottom: 14px;
+    height: 56px;
+     -webkit-line-clamp: 2; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+  }
+
+  p {
+    color: rgb(104, 100, 102);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: left;
+    -webkit-line-clamp: 3; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      color: rgb(35, 31, 32);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 19px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+
+    button {
+      color: rgb(71, 62, 67);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 28px;
+      letter-spacing: 0%;
+      text-align: left;
+      padding: 4px 23px;
+      border-radius: 8px;
+      background: rgb(247, 210, 45);
+    }
+  }
+}
