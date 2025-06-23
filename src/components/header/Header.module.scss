@@ -56,27 +56,7 @@
     }
   }
 
-  .cart {
-    padding: 7px 25px;
-    border-radius: 8px;
-    background: rgb(247, 210, 45);
-    display: flex;
-    align-items: center;
-    gap: 14px;
 
-    span {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 28px;
-      letter-spacing: 0%;
-    }
-    .separator {
-      width: 2px;
-      height: 23px;
-      border-radius: 5px;
-      background: rgb(35, 31, 32);
-    }
-  }
 
   select {
     font-size: 15px;

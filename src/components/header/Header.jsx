@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
 import st from "./Header.module.scss";
-
-export default function Header({
-  selectedFilter,
-  setSelectedFilter,
-  selectedSort,
-  setSelectedSort,
-  handleSearch,
-  limit,
+import Cart from "../cart/Cart.jsx";
+import logo from "../../assets/images/logo.svg";
+import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import {
   setLimit,
-}) {
+  setPage,
+  setSelectedFilter,
+  setSelectedSort,
+} from "../../redux/slices/productsReducer.js";
+
+export default function Header({ handleSearch }) {
   const [filters, setFilters] = useState([]);
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+
+  const { selectedFilter, selectedSort, limit } = useSelector(
+    (state) => state.products
+  );
 
   function clearSearch() {
     setSearch("");
@@ -25,33 +32,33 @@ export default function Header({
         setFilters(data);
       });
   }, []);
-  console.log(filters);
-  console.log(selectedFilter);
-  console.log(selectedSort);
 
   return (
     <header className={st.root}>
       <div className={st.container}>
         <div className={st.row}>
+          <Link to={"/"}>
+            <img src={logo} alt="" />
+          </Link>
           <div className={st.filters}>
             {filters.map((el) => {
               return (
                 <button
-                  className={selectedFilter === el && st.active}
-                  onClick={() =>
-                    setSelectedFilter((prev) => (prev === el ? null : el))
-                  }
+                  key={el}
+                  className={selectedFilter === el ? st.active : null}
+                  onClick={() => {
+                    dispatch(
+                      setSelectedFilter(selectedFilter === el ? null : el)
+                    );
+                    dispatch(setPage(1));
+                  }}
                 >
                   {el}
                 </button>
               );
             })}
           </div>
-          <button className={st.cart}>
-            <span>Корзина</span>
-            <div className={st.separator}></div>
-            <span>1</span>
-          </button>
+          <Cart />
         </div>
         <div className={st.row}>
           <div className={st.selectRows}>
@@ -59,7 +66,10 @@ export default function Header({
               <span>На странице:</span>
               <select
                 value={limit}
-                onChange={(event) => setLimit(event.target.value)}
+                onChange={(event) => {
+                  dispatch(setLimit(event.target.value));
+                  dispatch(setPage(1));
+                }}
               >
                 <option value="5">5</option>
                 <option value="10">10</option>
@@ -71,7 +81,9 @@ export default function Header({
               <span>Сортировка:</span>
               <select
                 value={selectedSort}
-                onChange={(event) => setSelectedSort(event.target.value)}
+                onChange={(event) =>
+                  dispatch(setSelectedSort(event.target.value))
+                }
               >
                 <option value="1">По Умолчанию</option>
                 <option value="2">По Названию</option>
